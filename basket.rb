@@ -20,6 +20,6 @@ class Basket
   def total
     discounted_total = offer_engine.apply(items.group_by(&:code), items.sum(&:price))
     delivery_cost = delivery_rules.find_delivery_charges(discounted_total)
-    (discounted_total + delivery_cost).round(2, half: :down) # used half down to avoid round off e.g. 98.275 to 98.27
+    (discounted_total + delivery_cost).floor(2)
   end
 end
