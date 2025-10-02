@@ -14,11 +14,11 @@ class Basket
     product = product_catalogue.find { |p| p.code == product_code }
     raise "Product code #{product_code} not found" unless product
 
-    @items << product
+    items << product
   end
 
   def total
-    discounted_total = offer_engine.apply(@items.group_by(&:code), @items.sum(&:price))
+    discounted_total = offer_engine.apply(items.group_by(&:code), items.sum(&:price))
     delivery_cost = delivery_rules.find_delivery_charges(discounted_total)
     (discounted_total + delivery_cost).round(2, half: :down) # used half down to avoid round off e.g. 98.275 to 98.27
   end
