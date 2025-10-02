@@ -5,7 +5,7 @@ class Offer
     @product_code = product_code
   end
 
-  def discount(items)
+  def apply_discount(items)
     raise NotImplementedError, "Subclasses must implement #discount"
   end
 end
