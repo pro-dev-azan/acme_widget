@@ -2,6 +2,7 @@ require_relative "product"
 require_relative "delivery_rule"
 require_relative "delivery_rule_set"
 require_relative "offers/buy_x_get_nth_half"
+require_relative "basket"
 
 product_catalogue = [
   Product.new(code: "R01", name: "Red Widget", price: 32.95),
@@ -16,3 +17,13 @@ delivery_rules = DeliveryRuleSet.new([
  ])
 
 offers = [BuyXGetNthHalf.new(product_code: "R01", nth: 2, discount: 0.5)]
+
+basket = Basket.new(product_catalogue: product_catalogue, delivery_rules: delivery_rules, offers: offers)
+
+basket.add("B01")
+basket.add("B01")
+basket.add("R01")
+basket.add("R01")
+basket.add("R01")
+
+puts "$#{basket.total}"
