@@ -9,7 +9,7 @@ class BuyXGetNthHalf < Offer
     @discount = discount
   end
 
-  def discount(grouped_items)
+  def apply_discount(grouped_items)
     items = grouped_items[product_code] || []
     return 0 unless items.size >= nth
 
