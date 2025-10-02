@@ -1,4 +1,5 @@
 require_relative "product"
+require_relative "delivery_rule"
 
 product_catalogue = [
   Product.new(code: "R01", name: "Red Widget", price: 32.95),
@@ -7,3 +8,7 @@ product_catalogue = [
 ]
 
 puts product_catalogue.inspect
+
+delivery_rule = DeliveryRule.new(min: 0, max: 50, cost: 4.95)
+
+puts delivery_rule.inspect
