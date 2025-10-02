@@ -6,4 +6,8 @@ class DeliveryRule
     @max  = max
     @cost = cost
   end
+
+  def applies?(sub_total)
+    sub_total >= min && sub_total < max
+  end
 end
